@@ -1,0 +1,6 @@
+JDBC Test
+I created a database named furniture_shop and connected through JDBC.
+Created a table 'customer'
+I added some data into the table, updated and deleted some rows in the table.
+I tested through SQL Workbench if the queries were executed right through JDBC 
+by creating the same queries through MySQL workbench.
