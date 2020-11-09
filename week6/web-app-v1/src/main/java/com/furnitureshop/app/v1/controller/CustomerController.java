@@ -1,37 +1,69 @@
-package com.furniture.shop.webappv1.controller;
+package com.furnitureshop.app.v1.controller;
 
-//import java.util.List;
+import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.furniture.shop.webappv1.model.Customer;
-//import com.furniture.shop.webappv1.service.CustomerService;
+import com.furnitureshop.app.v1.model.Customer;
+import com.furnitureshop.app.v1.model.CustomerDto;
+import com.furnitureshop.app.v1.service.CustomerService;
+
 
 @RestController
-//@RequestMapping("/customers")
+@RequestMapping("/customers")
 public class CustomerController {
 	
-	//@Autowired
-	//private  CustomerService customerService; //?'
+	@Autowired
+	private  CustomerService customerService; //?'
 	//Consider defining a bean of type 'com.furniture.shop.webappv1.service.CustomerService' in your configuration.
 
 	
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "Hello Get Mapping";
+	@GetMapping(path="/{id}") // works
+	public Customer getCustomer(@PathVariable Long id) {
+		return customerService.getCustomer(id); 
 	}
-/*	
-	@GetMapping(value="/customers")
-	public List<Customer> getCutomers(){
-		
-		return customerService.getAllCustomers();
-		
+	
+	@GetMapping()  //works
+	public Customer getCustomerByEmail(@RequestParam(value="email") String email) {
+		return customerService.findCustomerByEmail(email);
 	}
 
-*/	 
+	@GetMapping("/all") //works
+	public List<Customer> getCutomers(){
+		return customerService.getAllCustomers();
+	}
+	
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) //works
+	public Customer createCustomer(@RequestBody Customer customer) {
+		return customerService.createUser(customer);
+	}
+
+	
+	@PutMapping(path="{/id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Customer updateCustomer(@RequestBody CustomerDto customerDto, @PathVariable Long id) {
+		return customerService.updateCustomer(id, customerDto);
+		
+		//org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+	}
+
+	@DeleteMapping(path="{/id}") //Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported
+	public void deleteCustomer(@PathVariable Long id) {
+		customerService.deleteCustomer(id);
+		
+	}
 	
 	
 	

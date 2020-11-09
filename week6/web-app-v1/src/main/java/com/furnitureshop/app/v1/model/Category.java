@@ -1,4 +1,4 @@
-package com.furniture.shop.webappv1.model;
+package com.furnitureshop.app.v1.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
