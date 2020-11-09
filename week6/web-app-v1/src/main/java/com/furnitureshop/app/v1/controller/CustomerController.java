@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,17 +53,14 @@ public class CustomerController {
 	}
 
 	
-	@PutMapping(path="{/id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(path="/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Customer updateCustomer(@RequestBody CustomerDto customerDto, @PathVariable Long id) {
-		return customerService.updateCustomer(id, customerDto);
-		
-		//org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+		return customerService.updateCustomer(id, customerDto);	
 	}
 
-	@DeleteMapping(path="{/id}") //Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported
-	public void deleteCustomer(@PathVariable Long id) {
-		customerService.deleteCustomer(id);
-		
+	@DeleteMapping(path="/{id}") 
+	public @ResponseBody void deleteCustomer(@PathVariable Long id) {
+		customerService.deleteCustomer(id);		
 	}
 	
 	
