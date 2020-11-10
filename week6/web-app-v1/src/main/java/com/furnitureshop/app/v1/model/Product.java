@@ -17,7 +17,7 @@ public class Product {
 	private Long id;
 	
 	@Column(name="product_name")
-	private String product_name;
+	private String productName; // changed it
 	
 	@Column(name="price")
 	private Float price;
@@ -50,12 +50,12 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getProduct_name() {
-		return product_name;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	public Float getPrice() {

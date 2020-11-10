@@ -40,7 +40,7 @@ public class CustomerService {
 		Customer customer = customerRepository.findById(id).get();
   		customer.setFirstName(customerDto.getFirstName());
 		customer.setLastName(customerDto.getLastName());
-		customer.setPhoneNumber(customerDto.getPhoneNumber());
+		customer.setPhoneNumber(customerDto.getPhoneNumber()); // add more fields
 		
 		Customer updatedCustomer = customerRepository.save(customer);
 		return updatedCustomer;
