@@ -12,41 +12,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.model.Tag;
-import com.furnitureshop.app.v1.service.TagService;
+import com.furnitureshop.app.v1.model.ProductTag;
+import com.furnitureshop.app.v1.service.ProductTagService;
 
 // Rename vars in model class
 @RestController
 @RequestMapping("/tags")
-public class TagController {
+public class ProductTagController {
 	@Autowired
-	public TagService tagService;
+	public ProductTagService productTagService;
 	
 	@GetMapping
-	public List<Tag> getTags() {
-		return tagService.getAllTags(); 
+	public List<ProductTag> getTags() {
+		return productTagService.getAllTags(); 
 		
 	}
 	
 	@GetMapping("/{id}")
-	public Tag getTag(@PathVariable Long id) { 
-		return tagService.getTagById(id);
+	public ProductTag getTag(@PathVariable Long id) { 
+		return productTagService.getTagById(id);
 	}
 	
 	@PutMapping("/{id}")
-	public Tag updateTag(@PathVariable Long id, Tag newTag) { // working incorrectly ???
-		return tagService.updateTag(id, newTag);
+	public ProductTag updateTag(@PathVariable Long id, ProductTag newTag) { // working incorrectly ???
+		return productTagService.updateTag(id, newTag);
 	}
 	
 	@PostMapping
-	public Tag createTag(@RequestBody Tag tag) {
-		return tagService.createTag(tag);
+	public ProductTag createTag(@RequestBody ProductTag tag) {
+		return productTagService.createTag(tag);
 		
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteTag(@PathVariable Long id) {
-		tagService.deleteTag(id);
+		productTagService.deleteTag(id);
 	}
 	
 

@@ -38,6 +38,48 @@ public class Order {
 		
 	}
 
+	public Order(Long id, Customer customer, String orderDate, Short status) {
+		super();
+		this.id = id;
+		this.customer = customer;
+		this.orderDate = orderDate;
+		this.status = status;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public Short getStatus() {
+		return status;
+	}
+
+	public void setStatus(Short status) {
+		this.status = status;
+	}
+	
+	
+
 	
 	
 	

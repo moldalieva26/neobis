@@ -5,29 +5,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.model.Tag;
+import com.furnitureshop.app.v1.model.ProductTag;
 import com.furnitureshop.app.v1.repository.TagRepository;
 
 // To Do: 
 //add else, if, try catch for exceptions
 @Service
-public class TagService {
+public class ProductTagService {
 	
 	@Autowired TagRepository tagRepository;
 	
-	public List<Tag> getAllTags() {
+	public List<ProductTag> getAllTags() {
 		return tagRepository.findAll();
 	}
 
-	public Tag getTagById(Long id) {
+	public ProductTag getTagById(Long id) {
 		return tagRepository.findById(id).get();
 	}
 
-	public Tag updateTag(Long id, Tag newTag) {
-		// TODO Auto-generated method stub
+	public ProductTag updateTag(Long id, ProductTag newTag) {
 		if(tagRepository.findById(id).isPresent()) {
-			Tag tag = tagRepository.findById(id).get();
-			tag.setTag_name(newTag.getTag_name());
+			ProductTag tag = tagRepository.findById(id).get();
 		
 			return  tagRepository.save(tag); // returns null after updating???
 			
@@ -36,13 +34,12 @@ public class TagService {
 		return null;
 	}
 
-	public Tag createTag(Tag tag) {
+	public ProductTag createTag(ProductTag tag) {
 		return tagRepository.save(tag);
 	}
 
 	public void deleteTag(Long id) {
 		tagRepository.deleteById(id);
-		// TODO Auto-generated method stub
 		
 	}
 
