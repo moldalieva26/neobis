@@ -1,4 +1,4 @@
-package com.furnitureshop.app.v1.model;
+package com.furnitureshop.app.v1.entity;
 
 import java.util.Set;
 
@@ -13,9 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-// correct names of the properties
-// connect to db and post something
-// why tables were not created 
 
 
 @Entity

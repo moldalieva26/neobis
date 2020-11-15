@@ -1,4 +1,4 @@
-package com.furnitureshop.app.v1.model;
+package com.furnitureshop.app.v1.entity;
 
 public class CustomerDto {
 	

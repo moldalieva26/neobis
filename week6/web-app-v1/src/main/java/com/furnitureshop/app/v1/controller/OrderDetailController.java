@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.model.OrderDetail;
+import com.furnitureshop.app.v1.entity.OrderDetail;
 import com.furnitureshop.app.v1.service.OrderDetailService;
 
 @RestController
@@ -32,7 +32,7 @@ public class OrderDetailController {
 	}
 	
 	@PostMapping
-	public OrderDetail createOrderDetail(OrderDetail orderDetail) {
+	public OrderDetail createOrderDetail(OrderDetail orderDetail) { // returns nulls
 		return orderDetailService.createOrderDetail(orderDetail);
 	}
 	

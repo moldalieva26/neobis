@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.model.CartDetail;
+import com.furnitureshop.app.v1.entity.CartDetail;
 import com.furnitureshop.app.v1.service.CartDetailService;
 
-// how to test?
+// cannot create any rows
 @RestController
 @RequestMapping("/cartdetails")
 public class CartDetailController {
@@ -30,7 +30,7 @@ public class CartDetailController {
 		return cartDetailService.getAllCartDetails();
 	}
 	
-	@PostMapping 
+	@PostMapping //org.hibernate.PropertyValueException: not-null property references a null or transient value : com.furnitureshop.app.v1.entity.CartDetail.cartId
 	public CartDetail createCartDetail(CartDetail cartDetail) { // cannot add or update child row 
 		return cartDetailService.createCartDetail(cartDetail);
 		

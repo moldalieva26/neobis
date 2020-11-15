@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.model.Order;
+import com.furnitureshop.app.v1.entity.Order;
 import com.furnitureshop.app.v1.service.OrderService;
 
 @RestController
@@ -31,7 +31,7 @@ public class OrderController {
 	}
 	
 	@PostMapping
-	public Order createOrder(Order order) {
+	public Order createOrder(Order order) { // cannot create, customer_id cannot be put and does not have defaulte value
 		return orderService.createOrder(order);
 	}
 

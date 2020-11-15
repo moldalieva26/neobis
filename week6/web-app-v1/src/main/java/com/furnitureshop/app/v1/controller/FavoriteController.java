@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.model.Favorite;
+import com.furnitureshop.app.v1.entity.Favorite;
 import com.furnitureshop.app.v1.service.FavoriteService;
 
 @RestController
@@ -32,7 +32,7 @@ public class FavoriteController {
 		return favoriteService.getFavoriteById(id);
 	}
 	
-	@PostMapping Favorite createFavorite(Favorite favorite) {
+	@PostMapping Favorite createFavorite(Favorite favorite) { // cannot add or create or update child row
 		return favoriteService.createFavorite(favorite);
 	}
 	

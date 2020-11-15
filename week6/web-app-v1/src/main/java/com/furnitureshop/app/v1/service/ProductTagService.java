@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.model.ProductTag;
+import com.furnitureshop.app.v1.entity.ProductTag;
+import com.furnitureshop.app.v1.repository.ProductTagRepository;
 import com.furnitureshop.app.v1.repository.TagRepository;
 
 // To Do: 
@@ -13,21 +14,21 @@ import com.furnitureshop.app.v1.repository.TagRepository;
 @Service
 public class ProductTagService {
 	
-	@Autowired TagRepository tagRepository;
+	@Autowired ProductTagRepository productTagRepository;
 	
 	public List<ProductTag> getAllTags() {
-		return tagRepository.findAll();
+		return productTagRepository.findAll();
 	}
 
 	public ProductTag getTagById(Long id) {
-		return tagRepository.findById(id).get();
+		return productTagRepository.findById(id).get();
 	}
 
-	public ProductTag updateTag(Long id, ProductTag newTag) {
-		if(tagRepository.findById(id).isPresent()) {
-			ProductTag tag = tagRepository.findById(id).get();
-		
-			return  tagRepository.save(tag); // returns null after updating???
+	public ProductTag updateTag(Long id, ProductTag newProductTag) {
+		if(productTagRepository.findById(id).isPresent()) {
+			ProductTag tag = productTagRepository.findById(id).get();
+		// dopisat'
+			return  productTagRepository.save(tag); // returns null after updating???
 			
 			
 		}
@@ -35,11 +36,11 @@ public class ProductTagService {
 	}
 
 	public ProductTag createTag(ProductTag tag) {
-		return tagRepository.save(tag);
+		return productTagRepository.save(tag);
 	}
 
 	public void deleteTag(Long id) {
-		tagRepository.deleteById(id);
+		productTagRepository.deleteById(id);
 		
 	}
 

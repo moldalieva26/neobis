@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.model.Order;
+import com.furnitureshop.app.v1.entity.Order;
 import com.furnitureshop.app.v1.repository.OrderRepository;
 
 @Service

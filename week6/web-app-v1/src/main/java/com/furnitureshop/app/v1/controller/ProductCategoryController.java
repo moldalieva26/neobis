@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.model.ProductCategory;
+import com.furnitureshop.app.v1.entity.ProductCategory;
 import com.furnitureshop.app.v1.service.ProductCategoryService;
 
 @RestController

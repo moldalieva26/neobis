@@ -1,4 +1,4 @@
-package com.furnitureshop.app.v1.model;
+package com.furnitureshop.app.v1.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+// incorect mapping with Category entity - product_category
 @Entity
 @Table(name="product_category")
 public class ProductCategory {

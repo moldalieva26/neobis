@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.model.Customer;
-import com.furnitureshop.app.v1.model.CustomerDto;
+import com.furnitureshop.app.v1.entity.Customer;
+import com.furnitureshop.app.v1.entity.CustomerDto;
 import com.furnitureshop.app.v1.repository.CustomerRepository;
 
 @Service

@@ -1,4 +1,4 @@
-package com.furnitureshop.app.v1.model;
+package com.furnitureshop.app.v1.entity;
 
 import javax.persistence.Column;
 
