@@ -47,6 +47,7 @@ public class CustomerControllerTest {
 		customer.setFirstName("Test");
 		customer.setLastName("Test");
 		
+		// ???
 		ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
         ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
