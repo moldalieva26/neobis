@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-
+//#2
 @Entity
 @Table(name = "user")
 public class DAOUser {
