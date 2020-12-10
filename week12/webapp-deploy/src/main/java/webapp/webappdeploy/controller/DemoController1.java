@@ -1,13 +1,16 @@
 package webapp.webappdeploy.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
-public class DemoController {
+@RequestMapping("/test")
+public class DemoController1 {
       
-      @GetMapping("/check")
+      @GetMapping
       public String check() {
-           return "Hello Bitches!";
+           return "Application is alive";
       }
 }
