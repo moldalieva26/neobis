@@ -37,6 +37,12 @@ public class OrderService {
 		}
 		return null; // change
 	}
+
+	public Order getOrderByCustomerCountry(String country) {
+		// "SELECT o.id, o.customer_id, c.country from  customer_order o INNER JOIN on o.customer_id = c.id customer c WHERE c.country=='USA'"
+		
+		return null;
+	}
 	
 
 }

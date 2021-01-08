@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.furnitureshop.app.v1.entity.Customer;
 import com.furnitureshop.app.v1.entity.Order;
 import com.furnitureshop.app.v1.service.OrderService;
 
@@ -30,6 +31,14 @@ public class OrderController {
 		return orderService.getOrderById(id);
 	}
 	
+	//order.country // select orders where country == X from  join order and customer tables
+		// "SELECT o.id, o.customer_id, c.country from  customer_order o INNER JOIN on o.customer_id = c.id customer c WHERE c.country=='USA'"
+		
+	@GetMapping(path="/{country}")
+	public Order getOrderByCustomerCountry(@PathVariable String country) {
+		return orderService.getOrderByCustomerCountry(country);
+	}
+	
 	@PostMapping
 	public Order createOrder(Order order) { // cannot create, customer_id cannot be put and does not have defaulte value
 		return orderService.createOrder(order);
@@ -40,4 +49,6 @@ public class OrderController {
 	public Order updateOrder(@PathVariable Long id, Order newOrder) {
 		return orderService.updateOrder(id, newOrder);
 	}
+	//delete?
+	
 }
