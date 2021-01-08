@@ -7,6 +7,6 @@ import com.furnitureshop.app.v1.entity.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long>{
-	
+	//    List<Book> findByNameAndPrice(String name, BigDecimal price);
 
 }
