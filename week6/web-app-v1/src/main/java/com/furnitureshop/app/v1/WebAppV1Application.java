@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan({"com.furniture.shop.webappv1.controller"})
+//@ComponentScan({"com.furnitureshop"})
 public class WebAppV1Application {
 
 	public static void main(String[] args) {

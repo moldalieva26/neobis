@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.entity.Customer;
+import com.furnitureshop.app.v1.entity.CustomerEntity;
 import com.furnitureshop.app.v1.entity.CustomerDto;
 import com.furnitureshop.app.v1.repository.CustomerRepository;
 
@@ -16,33 +16,33 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
 	
-	public Customer getCustomer(Long id) {
+	public CustomerEntity getCustomer(Long id) {
 		return customerRepository.findById(id).get(); // Optional<Customer> needed if not to use get()
 	}
 
-	public List<Customer> getAllCustomers() {
+	public List<CustomerEntity> getAllCustomers() {
 		return customerRepository.findAll();
 	}
 
-	public Customer createUser(Customer customer) {
+	public CustomerEntity createUser(CustomerEntity customer) {
 		return customerRepository.save(customer);
 		
 	}
 
-	public Customer findCustomerByEmail(String email) {
+	public CustomerEntity findCustomerByEmail(String email) {
 		return customerRepository.findByEmail(email);
 		
 	}
 
-	public Customer updateCustomer(Long id, CustomerDto customerDto) {
+	public CustomerEntity updateCustomer(Long id, CustomerDto customerDto) {
 		if( customerRepository.findById(id).isPresent()) {
 			System.out.println("Customer found");
-		Customer customer = customerRepository.findById(id).get();
+		CustomerEntity customer = customerRepository.findById(id).get();
   		customer.setFirstName(customerDto.getFirstName());
 		customer.setLastName(customerDto.getLastName());
 		customer.setPhoneNumber(customerDto.getPhoneNumber()); // add more fields
 		
-		Customer updatedCustomer = customerRepository.save(customer);
+		CustomerEntity updatedCustomer = customerRepository.save(customer);
 		return updatedCustomer;
 			
 		} else {

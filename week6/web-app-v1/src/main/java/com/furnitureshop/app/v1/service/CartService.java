@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.entity.Cart;
+import com.furnitureshop.app.v1.entity.CartEntity;
 import com.furnitureshop.app.v1.repository.CartRepository;
 
 @Service
@@ -14,15 +14,15 @@ public class CartService {
 	@Autowired
 	public CartRepository cartRepository;
 
-	public List<Cart> getAllCarts() {
+	public List<CartEntity> getAllCarts() {
 		return cartRepository.findAll();
 	}
 
-	public Cart getCartById(Long id) {
+	public CartEntity getCartById(Long id) {
 		return cartRepository.findById(id).get();
 	}
 
-	public Cart createCart(Cart cart) {
+	public CartEntity createCart(CartEntity cart) {
 		return cartRepository.save(cart);
 	}
 

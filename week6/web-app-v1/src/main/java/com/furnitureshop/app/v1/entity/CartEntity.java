@@ -13,24 +13,24 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="cart")
-public class Cart {
+public class CartEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@OneToOne()
 	@JoinColumn(name="customer_id") //??
-	private Customer customerId;
+	private CustomerEntity customerId;
 
 	
 	
-	public Cart() {
+	public CartEntity() {
 
 	}
 
 
 
-	public Cart(Long id, Customer customerId) {
+	public CartEntity(Long id, CustomerEntity customerId) {
 		super();
 		this.id = id;
 		this.customerId = customerId;
@@ -50,13 +50,13 @@ public class Cart {
 
 
 
-	public Customer getCustomerId() {
+	public CustomerEntity getCustomerId() {
 		return customerId;
 	}
 
 
 
-	public void setCustomerId(Customer customerId) {
+	public void setCustomerId(CustomerEntity customerId) {
 		this.customerId = customerId;
 	}
 	

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.Customer;
+import com.furnitureshop.app.v1.entity.CustomerEntity;
 import com.furnitureshop.app.v1.entity.CustomerDto;
 import com.furnitureshop.app.v1.service.CustomerService;
 
@@ -34,28 +34,28 @@ public class CustomerController {
 
 	
 	@GetMapping(path="/{id}") // works
-	public Customer getCustomer(@PathVariable Long id) {
+	public CustomerEntity getCustomer(@PathVariable Long id) {
 		return customerService.getCustomer(id); 
 	}
 	
 	@GetMapping()  //works
-	public Customer getCustomerByEmail(@RequestParam(value="email") String email) {
+	public CustomerEntity getCustomerByEmail(@RequestParam(value="email") String email) {
 		return customerService.findCustomerByEmail(email);
 	}
 
 	@GetMapping("/all") //works
-	public List<Customer> getCutomers(){
+	public List<CustomerEntity> getCutomers(){
 		return customerService.getAllCustomers();
 	}
 	
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) //works
-	public Customer createCustomer(@RequestBody Customer customer) {
+	public CustomerEntity createCustomer(@RequestBody CustomerEntity customer) {
 		return customerService.createUser(customer);
 	}
 
 	
 	@PutMapping(path="/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Customer updateCustomer(@RequestBody CustomerDto customerDto, @PathVariable Long id) {
+	public CustomerEntity updateCustomer(@RequestBody CustomerDto customerDto, @PathVariable Long id) {
 		return customerService.updateCustomer(id, customerDto);	
 	}
 

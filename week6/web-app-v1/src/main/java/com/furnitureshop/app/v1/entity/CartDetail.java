@@ -21,7 +21,7 @@ public class CartDetail {
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false) 
 	@JoinColumn(name="cart_id")
-	private Cart cartId;
+	private CartEntity cartId;
 	
 	
 	@ManyToOne
@@ -37,7 +37,7 @@ public class CartDetail {
 	}
 
 
-	public CartDetail(Long id, Cart cartId, Product productId, Long quantity) {
+	public CartDetail(Long id, CartEntity cartId, Product productId, Long quantity) {
 		super();
 		this.id = id;
 		this.cartId = cartId;
@@ -56,12 +56,12 @@ public class CartDetail {
 	}
 
 
-	public Cart getCartId() {
+	public CartEntity getCartId() {
 		return cartId;
 	}
 
 
-	public void setCartId(Cart cartId) {
+	public void setCartId(CartEntity cartId) {
 		this.cartId = cartId;
 	}
 

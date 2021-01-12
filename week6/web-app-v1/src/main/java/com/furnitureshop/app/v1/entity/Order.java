@@ -26,7 +26,7 @@ public class Order {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false) // ?
 	@JoinColumn(name="customer_id")
 	@OnDelete(action = OnDeleteAction.CASCADE)// deletes all child elements (orders) when parent (customer) is deleted
-	private Customer customer;
+	private CustomerEntity customer;
 	
 	@Column(name="order_date")
 	private String orderDate; 
@@ -38,7 +38,7 @@ public class Order {
 		
 	}
 
-	public Order(Long id, Customer customer, String orderDate, Short status) {
+	public Order(Long id, CustomerEntity customer, String orderDate, Short status) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -54,11 +54,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public Customer getCustomer() {
+	public CustomerEntity getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerEntity customer) {
 		this.customer = customer;
 	}
 

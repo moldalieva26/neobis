@@ -24,7 +24,7 @@ public class Review {
 	
 	@ManyToOne
 	@JoinColumn(name="customer_id")
-	private Customer customerId;
+	private CustomerEntity customerId;
 	
 	private Short rating;
 	private String published_at; //?

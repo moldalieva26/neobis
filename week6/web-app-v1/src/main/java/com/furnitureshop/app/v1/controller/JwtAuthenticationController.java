@@ -19,7 +19,7 @@ import com.furnitureshop.app.v1.config.JwtTokenUtil;
 import com.furnitureshop.app.v1.model.JwtRequest;
 import com.furnitureshop.app.v1.model.JwtResponse;
 import com.furnitureshop.app.v1.model.UserDTO;
-import com.furnitureshop.app.v1.service.JwtUserDetailsService;
+import com.furnitureshop.app.v1.service.UserDetailsServiceImpl;
 
 
 @RestController
@@ -33,7 +33,7 @@ public class JwtAuthenticationController {
 	private JwtTokenUtil jwtTokenUtil;
 
 	@Autowired
-	private JwtUserDetailsService userDetailsService;
+	private UserDetailsServiceImpl userDetailsService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.Cart;
+import com.furnitureshop.app.v1.entity.CartEntity;
 import com.furnitureshop.app.v1.service.CartService;
 
 @RestController
@@ -21,20 +21,20 @@ public class CartController {
 	public CartService cartService;
 	
 	@GetMapping
-	public List<Cart> getAllCarts() {
+	public List<CartEntity> getAllCarts() {
 		return cartService.getAllCarts();
 		
 	}
 	
 	@GetMapping("/{id}")
-	public Cart getCartById(@PathVariable Long id) { // shows empty value 200 ok
+	public CartEntity getCartById(@PathVariable Long id) { // shows empty value 200 ok
 		return cartService.getCartById(id);
 		
 	}
 	
 	//Do I need? @PostMapping, @DeleteMapping, @UpdateMapping must be done when customer registers and deleted only when customer's aaccount is deleted
 	@PostMapping
-	public Cart createCart(Cart cart) { // i cannot set child row - customer_id
+	public CartEntity createCart(CartEntity cart) { // i cannot set child row - customer_id
 		return cartService.createCart(cart);
 		
 	}

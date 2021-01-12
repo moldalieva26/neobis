@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.Customer;
+import com.furnitureshop.app.v1.entity.CustomerEntity;
 import com.furnitureshop.app.v1.entity.Product;
 import com.furnitureshop.app.v1.service.ProductService;
 

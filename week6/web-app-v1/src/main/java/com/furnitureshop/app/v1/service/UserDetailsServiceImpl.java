@@ -16,7 +16,7 @@ import com.furnitureshop.app.v1.entity.DAOUser;
 import com.furnitureshop.app.v1.model.UserDTO;
 
 @Service
-public class JwtUserDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService { //JwtUserDetailsService
 
 	@Autowired
 	private UserDao userDao;
@@ -42,4 +42,5 @@ public class JwtUserDetailsService implements UserDetailsService {
 		return userDao.save(newUser); //? casted, original: 		return userDao.save(newUser);
  
 	}
+	//
 }

@@ -30,14 +30,14 @@ public class Favorite {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name="customer_id")
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	private Customer customerId;
+	private CustomerEntity customerId;
 
 	
 	public Favorite() {
 		
 	}
 
-	public Favorite(Long id, Product productId, Customer customerId) {
+	public Favorite(Long id, Product productId, CustomerEntity customerId) {
 		super();
 		this.id = id;
 		this.productId = productId;
@@ -65,12 +65,12 @@ public class Favorite {
 	}
 
 
-	public Customer getCustomerId() {
+	public CustomerEntity getCustomerId() {
 		return customerId;
 	}
 
 
-	public void setCustomerId(Customer customerId) {
+	public void setCustomerId(CustomerEntity customerId) {
 		this.customerId = customerId;
 	}
 	

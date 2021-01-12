@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="customer")
-public class Customer {
+public class CustomerEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -54,7 +54,7 @@ public class Customer {
 	private Integer postalCode; 
 	
     @OneToOne (mappedBy="customerId") //non owning side // customerId from Cart.Class
-    private Cart cart; // gives error, correct and uncomment
+    private CartEntity cart; // gives error, correct and uncomment
     
     // password 
 	 
@@ -67,14 +67,14 @@ public class Customer {
 	
 
 	
-	public Customer() {
+	public CustomerEntity() {
 		
 	}
 
 
 
-	public Customer(Long id, String firstName, String lastName, String email, String phoneNumber, String addressLine1,
-			String addressLine2, String city, String province, String country, Integer postalCode, Cart cart) {
+	public CustomerEntity(Long id, String firstName, String lastName, String email, String phoneNumber, String addressLine1,
+			String addressLine2, String city, String province, String country, Integer postalCode, CartEntity cart) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -224,13 +224,13 @@ public class Customer {
 
 
 
-	public Cart getCart() {
+	public CartEntity getCart() {
 		return cart;
 	}
 
 
 
-	public void setCart(Cart cart) {
+	public void setCart(CartEntity cart) {
 		this.cart = cart;
 	}
 	
