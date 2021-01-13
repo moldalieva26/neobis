@@ -15,7 +15,7 @@ import com.furnitureshop.app.v1.dao.UserDao;
 import com.furnitureshop.app.v1.entity.DAOUser;
 import com.furnitureshop.app.v1.model.UserDTO;
 
-@Service
+@Service("userDetailsServiceImpl")
 public class UserDetailsServiceImpl implements UserDetailsService { //JwtUserDetailsService
 
 	@Autowired

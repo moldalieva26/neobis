@@ -25,12 +25,11 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @WebAppConfiguration
 @AutoConfigureMockMvc
 @ComponentScan(basePackages = {"com.furnitureshop"}) // bez nego vydaet 404 (ne vidit controllery) 
-@WithUserDetails("user")
+@WithUserDetails(value="testuser3", userDetailsServiceBeanName="userDetailsServiceImpl") //value="customUsername", userDetailsServiceBeanName="myUserDetailsService")
 public class CustomerControllerTest {
 	@Autowired
     private MockMvc mockMvc;
-	
-	
+
 	
     @Test
     public void getAllCustomers() throws Exception{
@@ -45,4 +44,15 @@ public class CustomerControllerTest {
 		.andExpect(status().isOk());
 		
 	}
+	
+	@Test
+	public void getCustomerByEmail() throws Exception{
+		String email = "test@test.com";
+		this.mockMvc.perform(get("/customers").param("email", email)).andDo(print())
+		.andExpect(status().isOk());
+
+		
+	}
+ 
+
 }
