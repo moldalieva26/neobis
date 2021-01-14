@@ -11,11 +11,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.dao.UserDao;
 import com.furnitureshop.app.v1.entity.DAOUser;
 import com.furnitureshop.app.v1.model.UserDTO;
+import com.furnitureshop.app.v1.repository.UserDao;
 
-@Service("userDetailsServiceImpl")
+@Service("userDetailsServiceImpl") // name is required if there are 2 classes UserDetailsService & UserDetailsServiceImpl
 public class UserDetailsServiceImpl implements UserDetailsService { //JwtUserDetailsService
 
 	@Autowired

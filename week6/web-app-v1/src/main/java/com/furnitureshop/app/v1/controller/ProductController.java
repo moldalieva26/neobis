@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.furnitureshop.app.v1.entity.CustomerEntity;
-import com.furnitureshop.app.v1.entity.Product;
+import com.furnitureshop.app.v1.entity.ProductEntity;
 import com.furnitureshop.app.v1.service.ProductService;
 
 @RestController
@@ -24,34 +24,34 @@ public class ProductController {
 	ProductService productService;
 	
 	@GetMapping("/{id}")
-	public Product getProduct(@PathVariable Long id) {
+	public ProductEntity getProduct(@PathVariable Long id) {
 		return productService.getProduct(id);
 	}
 	
 	@GetMapping()
-	public List<Product> getAllProducts(){
+	public List<ProductEntity> getAllProducts(){
 		return productService.getAllProducts();
 	} 
 	
 	
 	@GetMapping("/name/{productName}") 
-	public List<Product> getProductsByName(@PathVariable String productName) {
+	public List<ProductEntity> getProductsByName(@PathVariable String productName) {
 		return productService.getProductsByName(productName);
 		
 	}
 	
 	@GetMapping("/category/{categoryId}")
-	public List<Product> getProductsByCategory(@PathVariable Long categoryId){
+	public List<ProductEntity> getProductsByCategory(@PathVariable Long categoryId){
 		return productService.getProductsByCategory(categoryId);
 	}
 	
 	@PostMapping()
-	public Product createProduct(@RequestBody Product product) {
+	public ProductEntity createProduct(@RequestBody ProductEntity product) {
 		return productService.createProduct(product);
 	}
 	
 	@PutMapping("/{id}")
-	public Product updateProduct(@PathVariable Long id, @RequestBody Product newProduct) {
+	public ProductEntity updateProduct(@PathVariable Long id, @RequestBody ProductEntity newProduct) {
 		return productService.updateProduct(id, newProduct);
 	}
 	

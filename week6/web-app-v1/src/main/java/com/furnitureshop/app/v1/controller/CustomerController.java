@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.furnitureshop.app.v1.entity.CustomerEntity;
-import com.furnitureshop.app.v1.entity.CustomerDto;
+import com.furnitureshop.app.v1.model.CustomerDto;
 import com.furnitureshop.app.v1.service.CustomerService;
 
 

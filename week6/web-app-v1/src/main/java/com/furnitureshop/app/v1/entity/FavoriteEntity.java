@@ -16,7 +16,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Table(name="favorite")
 
-public class Favorite {
+public class FavoriteEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,7 +24,7 @@ public class Favorite {
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -33,11 +33,11 @@ public class Favorite {
 	private CustomerEntity customerId;
 
 	
-	public Favorite() {
+	public FavoriteEntity() {
 		
 	}
 
-	public Favorite(Long id, Product productId, CustomerEntity customerId) {
+	public FavoriteEntity(Long id, ProductEntity productId, CustomerEntity customerId) {
 		super();
 		this.id = id;
 		this.productId = productId;
@@ -55,12 +55,12 @@ public class Favorite {
 	}
 
 
-	public Product getProductId() {
+	public ProductEntity getProductId() {
 		return productId;
 	}
 
 
-	public void setProductId(Product productId) {
+	public void setProductId(ProductEntity productId) {
 		this.productId = productId;
 	}
 

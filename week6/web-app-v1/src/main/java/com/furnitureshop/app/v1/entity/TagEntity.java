@@ -19,7 +19,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "tag")
-public class Tag {
+public class TagEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -30,13 +30,13 @@ public class Tag {
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_tag_id")
 	// @OnDelete(action=OnDeleteAction.CASCADE)
-	private List<ProductTag> productTagId;
+	private List<ProductTagEntity> productTagId;
 
-	public Tag() {
+	public TagEntity() {
 		
 	}
 	
-	public Tag(Long id, String tagName, List<ProductTag> productTagId) {
+	public TagEntity(Long id, String tagName, List<ProductTagEntity> productTagId) {
 		super();
 		this.id = id;
 		this.tagName = tagName;
@@ -59,11 +59,11 @@ public class Tag {
 		this.tagName = tagName;
 	}
 
-	public List<ProductTag> getProductTagId() {
+	public List<ProductTagEntity> getProductTagId() {
 		return productTagId;
 	}
 
-	public void setProductTagId(List<ProductTag> productTagId) {
+	public void setProductTagId(List<ProductTagEntity> productTagId) {
 		this.productTagId = productTagId;
 	}
 	

@@ -7,10 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+// check setters!
 @Entity
 @Table(name="order_detail")
-public class OrderDetail { //so one order has one or multiple items
+public class OrderDetailEntity { //so one order has one or multiple items
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -18,12 +18,12 @@ public class OrderDetail { //so one order has one or multiple items
 	
 	@ManyToOne
 	@JoinColumn(name="order_id")
-	private Order orderId;
+	private OrderEntity orderId;
 	
 	
 	@ManyToOne
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
 	
 	private Long quantity;
@@ -32,11 +32,11 @@ public class OrderDetail { //so one order has one or multiple items
 	// discount
 	private Float total;
 
-	public OrderDetail() {
+	public OrderDetailEntity() {
 		
 	}
 
-	public OrderDetail(Long id, Order orderId, Product productId, Long quantity, Float subtotal, Float tax,
+	public OrderDetailEntity(Long id, OrderEntity orderId, ProductEntity productId, Long quantity, Float subtotal, Float tax,
 			Float total) {
 		super();
 		this.id = id;
@@ -56,19 +56,19 @@ public class OrderDetail { //so one order has one or multiple items
 		this.id = id;
 	}
 
-	public Order getOrderId() {
+	public OrderEntity getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(Order orderId) {
+	public void setOrderId(OrderEntity orderId) {
 		this.orderId = orderId;
 	}
 
-	public Product getProductId() {
+	public ProductEntity getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Product productId) {
+	public void setProductId(ProductEntity productId) {
 		this.productId = productId;
 	}
 

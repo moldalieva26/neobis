@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.entity.ProductCategory;
+import com.furnitureshop.app.v1.entity.ProductCategoryEntity;
 import com.furnitureshop.app.v1.repository.ProductCategoryRepository;
 
 @Service
@@ -14,11 +14,11 @@ public class ProductCategoryService {
 	@Autowired
 	ProductCategoryRepository productCategoryRepository;
 	
-	public List<ProductCategory> getAllProductCategories() {
+	public List<ProductCategoryEntity> getAllProductCategories() {
 		return productCategoryRepository.findAll();
 	}
 
-	public ProductCategory getProductCategory(Long id) {
+	public ProductCategoryEntity getProductCategory(Long id) {
 		return productCategoryRepository.findById(id).get();
 	}
 
@@ -28,7 +28,7 @@ public class ProductCategoryService {
 		
 	}
 
-	public ProductCategory createProductCategory(ProductCategory productCategory) {
+	public ProductCategoryEntity createProductCategory(ProductCategoryEntity productCategory) {
 		// TODO Auto-generated method stub
 		return productCategoryRepository.save(productCategory);
 	}

@@ -1,6 +1,6 @@
 package com.furnitureshop.app.v1.entity;
 
-public class Transactions {
+public class TransactionEntity {
 	
 	private Long id;
 	private Long order_id;
@@ -9,7 +9,7 @@ public class Transactions {
 	private String created_at;
 	private String updated_at;
 	
-	public Transactions() {
+	public TransactionEntity() {
 		
 	}
 	

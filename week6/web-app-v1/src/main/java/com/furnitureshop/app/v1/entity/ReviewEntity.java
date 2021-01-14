@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="review")
-public class Review {
+public class ReviewEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -20,7 +20,7 @@ public class Review {
 	
 	@ManyToOne
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
 	@ManyToOne
 	@JoinColumn(name="customer_id")
@@ -29,7 +29,7 @@ public class Review {
 	private Short rating;
 	private String published_at; //?
 	
-	Review() {
+	ReviewEntity() {
 		
 		
 		

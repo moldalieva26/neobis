@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.ProductTag;
+import com.furnitureshop.app.v1.entity.ProductTagEntity;
 import com.furnitureshop.app.v1.service.ProductTagService;
 
 // Rename vars in model class
@@ -23,23 +23,23 @@ public class ProductTagController {
 	public ProductTagService productTagService;
 	
 	@GetMapping
-	public List<ProductTag> getTags() {
+	public List<ProductTagEntity> getTags() {
 		return productTagService.getAllTags(); 
 		
 	}
 	
 	@GetMapping("/{id}")
-	public ProductTag getTag(@PathVariable Long id) { 
+	public ProductTagEntity getTag(@PathVariable Long id) { 
 		return productTagService.getTagById(id);
 	}
 	
 	@PutMapping("/{id}")
-	public ProductTag updateTag(@PathVariable Long id, ProductTag newTag) { // working incorrectly ???
+	public ProductTagEntity updateTag(@PathVariable Long id, ProductTagEntity newTag) { // working incorrectly ???
 		return productTagService.updateTag(id, newTag);
 	}
 	
 	@PostMapping
-	public ProductTag createTag(@RequestBody ProductTag tag) {
+	public ProductTagEntity createTag(@RequestBody ProductTagEntity tag) {
 		return productTagService.createTag(tag);
 		
 	}

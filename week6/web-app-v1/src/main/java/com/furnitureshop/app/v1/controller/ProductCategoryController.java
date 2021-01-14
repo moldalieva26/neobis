@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.ProductCategory;
+import com.furnitureshop.app.v1.entity.ProductCategoryEntity;
 import com.furnitureshop.app.v1.service.ProductCategoryService;
 
 @RestController
-@RequestMapping("productcategory")
+@RequestMapping("productcategories")
 public class ProductCategoryController {
 	@Autowired ProductCategoryService productCategoryService;
 
 	@GetMapping
-	public List<ProductCategory> getAllProductCategories() {
+	public List<ProductCategoryEntity> getAllProductCategories() {
 		return productCategoryService.getAllProductCategories();
 	}
 	
 	@GetMapping("/{id}")
-	public ProductCategory getProductCategory(@PathVariable Long id) {
+	public ProductCategoryEntity getProductCategory(@PathVariable Long id) {
 		return productCategoryService.getProductCategory(id);
 	}
 	
@@ -36,12 +36,12 @@ public class ProductCategoryController {
 	}
 	
 	@PostMapping()
-	public ProductCategory createProductCategory(@RequestBody ProductCategory productCategory) {
+	public ProductCategoryEntity createProductCategory(@RequestBody ProductCategoryEntity productCategory) {
 			return productCategoryService.createProductCategory(productCategory);
 		}
 	
 	@PutMapping("/{id}")
-	public ProductCategory updateProductCategory(@RequestBody ProductCategory newProductCategory, Long id) {
+	public ProductCategoryEntity updateProductCategory(@RequestBody ProductCategoryEntity newProductCategory, Long id) {
 		return null; // finish!
 		
 	}

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.ProductTag;
-import com.furnitureshop.app.v1.entity.Tag;
+import com.furnitureshop.app.v1.entity.ProductTagEntity;
+import com.furnitureshop.app.v1.entity.TagEntity;
 import com.furnitureshop.app.v1.service.TagService;
 
 
@@ -25,23 +25,23 @@ public class TagController {
 	public TagService tagService;
 	
 	@GetMapping
-	public List<Tag> getTags() {
+	public List<TagEntity> getTags() {
 		return tagService.getAllTags(); 
 		
 	}
 	
 	@GetMapping("/{id}")
-	public Tag getTag(@PathVariable Long id) { 
+	public TagEntity getTag(@PathVariable Long id) { 
 		return tagService.getTagById(id);
 	}
 	
 	@PutMapping("/{id}")
-	public Tag updateTag(@PathVariable Long id, Tag newTag) { // working incorrectly ??? returns null
+	public TagEntity updateTag(@PathVariable Long id, TagEntity newTag) { // working incorrectly ??? returns null
 		return tagService.updateTag(id, newTag);
 	}
 	
 	@PostMapping
-	public Tag createTag(@RequestBody Tag tag) {
+	public TagEntity createTag(@RequestBody TagEntity tag) {
 		return tagService.createTag(tag);
 		
 	}

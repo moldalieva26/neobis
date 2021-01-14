@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.entity.Order;
+import com.furnitureshop.app.v1.entity.OrderEntity;
 import com.furnitureshop.app.v1.repository.OrderRepository;
 
 @Service
@@ -14,21 +14,21 @@ public class OrderService {
 	@Autowired
 	public OrderRepository orderRepository;
 
-	public List<Order> getAllOrders() {
+	public List<OrderEntity> getAllOrders() {
 		return orderRepository.findAll();
 	}
 
-	public Order getOrderById(Long id) {
+	public OrderEntity getOrderById(Long id) {
 		return orderRepository.findById(id).get();
 	}
 
-	public Order createOrder(Order order) {
+	public OrderEntity createOrder(OrderEntity order) {
 		return orderRepository.save(order);
 	}
 
-	public Order updateOrder(Long id, Order newOrder) {
+	public OrderEntity updateOrder(Long id, OrderEntity newOrder) {
 		if(orderRepository.findById(id).isPresent()) {
-			Order order = orderRepository.findById(id).get();
+			OrderEntity order = orderRepository.findById(id).get();
 			order.setCustomer(newOrder.getCustomer());
 			order.setOrderDate(newOrder.getOrderDate());
 			order.setStatus(newOrder.getStatus());
@@ -38,7 +38,7 @@ public class OrderService {
 		return null; // change
 	}
 
-	public Order getOrderByCustomerCountry(String country) {
+	public OrderEntity getOrderByCustomerCountry(String country) {
 		// "SELECT o.id, o.customer_id, c.country from  customer_order o INNER JOIN on o.customer_id = c.id customer c WHERE c.country=='USA'"
 		// how to integrate?
 		return null;

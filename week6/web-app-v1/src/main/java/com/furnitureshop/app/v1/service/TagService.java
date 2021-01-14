@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.entity.Tag;
+import com.furnitureshop.app.v1.entity.TagEntity;
 import com.furnitureshop.app.v1.repository.TagRepository;
 
 @Service
@@ -13,17 +13,17 @@ public class TagService {
 	
 	@Autowired TagRepository tagRepository;
 	
-	public List<Tag> getAllTags() {
+	public List<TagEntity> getAllTags() {
 		return tagRepository.findAll();
 	}
 
-	public Tag getTagById(Long id) {
+	public TagEntity getTagById(Long id) {
 		return tagRepository.findById(id).get();
 	}
 
-	public Tag updateTag(Long id, Tag newTag) {
+	public TagEntity updateTag(Long id, TagEntity newTag) {
 		if(tagRepository.findById(id).isPresent()) {
-			Tag tag = tagRepository.findById(id).get();
+			TagEntity tag = tagRepository.findById(id).get();
 		
 			return  tagRepository.save(tag); // returns null after updating???
 			
@@ -32,7 +32,7 @@ public class TagService {
 		return null;
 	}
 
-	public Tag createTag(Tag tag) {
+	public TagEntity createTag(TagEntity tag) {
 		return tagRepository.save(tag);
 	}
 

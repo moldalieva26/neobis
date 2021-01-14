@@ -17,7 +17,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Table(name="customer_order") // renamed since order is reserved word in SQL
 //
-public class Order { 
+public class OrderEntity { 
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -34,11 +34,11 @@ public class Order {
 	@Column(name="status")
 	private Short status;
 
-	public Order() {
+	public OrderEntity() {
 		
 	}
 
-	public Order(Long id, CustomerEntity customer, String orderDate, Short status) {
+	public OrderEntity(Long id, CustomerEntity customer, String orderDate, Short status) {
 		super();
 		this.id = id;
 		this.customer = customer;

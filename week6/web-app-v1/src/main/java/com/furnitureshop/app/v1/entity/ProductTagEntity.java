@@ -12,24 +12,24 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="product_tag")
-public class ProductTag {
+public class ProductTagEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
 	@ManyToOne
 	@JoinColumn(name="tag_id")
-	private ProductTag tagId;
+	private ProductTagEntity tagId;
 	
-	public ProductTag() {
+	public ProductTagEntity() {
 		
 	}
 
-	public ProductTag(Long id, Product productId, ProductTag tagId) {
+	public ProductTagEntity(Long id, ProductEntity productId, ProductTagEntity tagId) {
 		super();
 		this.id = id;
 		this.productId = productId;
@@ -44,19 +44,19 @@ public class ProductTag {
 		this.id = id;
 	}
 
-	public Product getProductId() {
+	public ProductEntity getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Product productId) {
+	public void setProductId(ProductEntity productId) {
 		this.productId = productId;
 	}
 
-	public ProductTag getTagId() {
+	public ProductTagEntity getTagId() {
 		return tagId;
 	}
 
-	public void setTagId(ProductTag tagId) {
+	public void setTagId(ProductTagEntity tagId) {
 		this.tagId = tagId;
 	}
 	

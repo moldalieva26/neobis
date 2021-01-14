@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.OrderDetail;
+import com.furnitureshop.app.v1.entity.OrderDetailEntity;
 import com.furnitureshop.app.v1.service.OrderDetailService;
 
 @RestController
@@ -21,18 +21,18 @@ public class OrderDetailController {
 	public OrderDetailService orderDetailService;
 	
 	@GetMapping
-	public List<OrderDetail> getAllOrderDetails(){
+	public List<OrderDetailEntity> getAllOrderDetails(){
 		return orderDetailService.getAllOrderDetails();
 	}
 	
 	
 	@GetMapping("/{id}")
-	public OrderDetail getOrderDetailById(@PathVariable Long id) {
+	public OrderDetailEntity getOrderDetailById(@PathVariable Long id) {
 		return orderDetailService.getOrderDetailById(id);
 	}
 	
 	@PostMapping
-	public OrderDetail createOrderDetail(OrderDetail orderDetail) { // returns nulls
+	public OrderDetailEntity createOrderDetail(OrderDetailEntity orderDetail) { // returns nulls
 		return orderDetailService.createOrderDetail(orderDetail);
 	}
 	
@@ -42,7 +42,7 @@ public class OrderDetailController {
 	}
 	
 	@PutMapping("/{id}")
-	public OrderDetail updateOrderDetail(@PathVariable Long id, OrderDetail newOrderDetail) {
+	public OrderDetailEntity updateOrderDetail(@PathVariable Long id, OrderDetailEntity newOrderDetail) {
 		return orderDetailService.updateOrderDetail(id, newOrderDetail);
 	}
 	

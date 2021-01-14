@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.Category;
-import com.furnitureshop.app.v1.entity.ProductCategory;
+import com.furnitureshop.app.v1.entity.CategoryEntity;
+import com.furnitureshop.app.v1.entity.ProductCategoryEntity;
 import com.furnitureshop.app.v1.service.CategoryService;
+//nothing works!!!!
 
 @RestController
 @RequestMapping("/categories")
@@ -23,17 +24,17 @@ public class CategoryController {
 	public CategoryService categoryService;
 	
 	@GetMapping
-	public List<Category> getAllCategories(){
+	public List<CategoryEntity> getAllCategories(){
 		return categoryService.getAllCategories();
 	}
 	
 	@GetMapping("/{id}")
-	public Category getCategoryById(@PathVariable Long id) {
+	public CategoryEntity getCategoryById(@PathVariable Long id) {
 		return categoryService.getCategoryById(id);
 	}
 	
 	@PostMapping
-	public Category createCategory(Category category) { // returned null 200 ok
+	public CategoryEntity createCategory(CategoryEntity category) { // returned null 200 ok but DID NOT CREATE A CATEGORY
 		return categoryService.createCategory(category);
 	}
 	
@@ -44,7 +45,7 @@ public class CategoryController {
 	}
 	
 	@PutMapping("/{id}")
-	public Category updateCategory(@PathVariable Long id, Category newCategory) { // returned null 200 ok
+	public CategoryEntity updateCategory(@PathVariable Long id, CategoryEntity newCategory) { // returned null 200 ok
 		return categoryService.updateCategory(id, newCategory);
 	}
 	

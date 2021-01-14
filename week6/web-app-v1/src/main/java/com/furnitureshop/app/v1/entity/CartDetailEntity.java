@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="cart_detail")  // cart items (one cart has 1 or many items)
-public class CartDetail {
+public class CartDetailEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; //???
@@ -26,18 +26,18 @@ public class CartDetail {
 	
 	@ManyToOne
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
 	@Column(name="quantity")
 	private Long quantity;
 	
 	
-	public CartDetail() {
+	public CartDetailEntity() {
 		
 	}
 
 
-	public CartDetail(Long id, CartEntity cartId, Product productId, Long quantity) {
+	public CartDetailEntity(Long id, CartEntity cartId, ProductEntity productId, Long quantity) {
 		super();
 		this.id = id;
 		this.cartId = cartId;
@@ -66,12 +66,12 @@ public class CartDetail {
 	}
 
 
-	public Product getProductId() {
+	public ProductEntity getProductId() {
 		return productId;
 	}
 
 
-	public void setProductId(Product productId) {
+	public void setProductId(ProductEntity productId) {
 		this.productId = productId;
 	}
 

@@ -10,14 +10,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="product_detail")
-public class ProductDetail {
+public class ProductDetailEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
 	@OneToOne
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
 	private String material;
 	private String color;
@@ -26,7 +26,7 @@ public class ProductDetail {
 	private Integer width;
 	private Integer height;
 	
-	public ProductDetail() {
+	public ProductDetailEntity() {
 		
 	}
 
@@ -38,11 +38,11 @@ public class ProductDetail {
 		this.id = id;
 	}
 
-	public Product getProductId() {
+	public ProductEntity getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Product productId) {
+	public void setProductId(ProductEntity productId) {
 		this.productId = productId;
 	}
 

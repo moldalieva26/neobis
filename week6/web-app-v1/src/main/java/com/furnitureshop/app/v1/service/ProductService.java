@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.furnitureshop.app.v1.entity.CustomerEntity;
-import com.furnitureshop.app.v1.entity.Product;
+import com.furnitureshop.app.v1.entity.ProductEntity;
 import com.furnitureshop.app.v1.repository.ProductRepository;
 
 @Service
@@ -15,11 +15,11 @@ public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
 
-	public Product getProduct(Long id) {
+	public ProductEntity getProduct(Long id) {
 		return productRepository.findById(id).get(); //if not, throw exceptiond
 	}
 
-	public List<Product> getAllProducts() {
+	public List<ProductEntity> getAllProducts() {
 		return productRepository.findAll();
 	}
 /*
@@ -27,23 +27,23 @@ public class ProductService {
 		return productRepository.findByProductName(productName);
 	}
 */
-	public List<Product> getProductsByName(String productName) {
+	public List<ProductEntity> getProductsByName(String productName) {
 		return productRepository.findByProductName(productName);
 
 	}
 
-	public List<Product> getProductsByCategory(Long categoryId) {
+	public List<ProductEntity> getProductsByCategory(Long categoryId) {
 		// TODO Auto-generated method stub
 		return productRepository.findByCategoryId(categoryId);
 	}
 
-	public Product createProduct(Product product) {
+	public ProductEntity createProduct(ProductEntity product) {
 		return productRepository.save(product);
 	}
 
-	public Product updateProduct(Long id, Product newProduct) { //updated later 
+	public ProductEntity updateProduct(Long id, ProductEntity newProduct) { //updated later 
 		if(productRepository.findById(id).isPresent()) {
-			Product existingProduct = productRepository.findById(id).get();
+			ProductEntity existingProduct = productRepository.findById(id).get();
 			existingProduct.setProductName(newProduct.getProductName());
 			existingProduct.setPrice(newProduct.getPrice());
 			existingProduct.setCategoryId(newProduct.getCategoryId());

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.furnitureshop.app.v1.entity.CartDetail;
+import com.furnitureshop.app.v1.entity.CartDetailEntity;
 import com.furnitureshop.app.v1.service.CartDetailService;
 
 // cannot create any rows
@@ -21,17 +21,17 @@ public class CartDetailController {
 	@Autowired CartDetailService cartDetailService;
 	
 	@GetMapping("/{id}")
-	public CartDetail getCartById(@PathVariable Long id) {
+	public CartDetailEntity getCartById(@PathVariable Long id) {
 		return cartDetailService.getCartById(id);
 	}
 	
 	@GetMapping
-	public List<CartDetail> getAllCartDetails(){
+	public List<CartDetailEntity> getAllCartDetails(){
 		return cartDetailService.getAllCartDetails();
 	}
 	
 	@PostMapping //org.hibernate.PropertyValueException: not-null property references a null or transient value : com.furnitureshop.app.v1.entity.CartDetail.cartId
-	public CartDetail createCartDetail(CartDetail cartDetail) { // cannot add or update child row 
+	public CartDetailEntity createCartDetail(CartDetailEntity cartDetail) { // cannot add or update child row ???
 		return cartDetailService.createCartDetail(cartDetail);
 		
 	}
@@ -42,7 +42,7 @@ public class CartDetailController {
 	}
 	
 	@PutMapping("/{id}")
-	public void updateCartDetail(@PathVariable Long id, CartDetail newCartDetail) {
+	public void updateCartDetail(@PathVariable Long id, CartDetailEntity newCartDetail) {
 		cartDetailService.updateCartDetail(id, newCartDetail);
 	}
 	

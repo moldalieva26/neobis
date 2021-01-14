@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.furnitureshop.app.v1.entity.OrderDetail;
+import com.furnitureshop.app.v1.entity.OrderDetailEntity;
 import com.furnitureshop.app.v1.repository.OrderDetailRepository;
 
 @Service
@@ -13,17 +13,17 @@ public class OrderDetailService {
 
 	@Autowired OrderDetailRepository orderDetailRepository;
 
-	public List<OrderDetail> getAllOrderDetails() {
+	public List<OrderDetailEntity> getAllOrderDetails() {
 		return orderDetailRepository.findAll();
 	}
 
 
-	public OrderDetail getOrderDetailById(Long id) {
+	public OrderDetailEntity getOrderDetailById(Long id) {
 		return orderDetailRepository.findById(id).get();
 	}
 
 
-	public OrderDetail createOrderDetail(OrderDetail orderDetail) {
+	public OrderDetailEntity createOrderDetail(OrderDetailEntity orderDetail) {
 		return orderDetailRepository.save(orderDetail);
 	}
 
@@ -34,9 +34,9 @@ public class OrderDetailService {
 	}
 
 
-	public OrderDetail updateOrderDetail(Long id, OrderDetail newOrderDetail) {
+	public OrderDetailEntity updateOrderDetail(Long id, OrderDetailEntity newOrderDetail) {
 		if(orderDetailRepository.findById(id).isPresent()) {
-			OrderDetail orderDetail = orderDetailRepository.findById(id).get();
+			OrderDetailEntity orderDetail = orderDetailRepository.findById(id).get();
 			orderDetail.setOrderId(newOrderDetail.getOrderId());
 			orderDetail.setProductId(newOrderDetail.getProductId());
 			orderDetail.setQuantity(newOrderDetail.getQuantity());

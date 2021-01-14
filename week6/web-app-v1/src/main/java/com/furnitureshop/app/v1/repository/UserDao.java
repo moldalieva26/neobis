@@ -1,4 +1,4 @@
-package com.furnitureshop.app.v1.dao;
+package com.furnitureshop.app.v1.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

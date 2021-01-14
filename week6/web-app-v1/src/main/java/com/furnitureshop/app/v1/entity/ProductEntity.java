@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="product")
-public class Product {
+public class ProductEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -36,9 +36,9 @@ public class Product {
 	
 	
 	@OneToOne(mappedBy="productId") // comes from: ProductDetail.Class -> private Product productId;
-	private ProductDetail productDetail; 
+	private ProductDetailEntity productDetail; 
 	
-	public Product() {
+	public ProductEntity() {
 		
 	}
 
@@ -98,11 +98,11 @@ public class Product {
 		this.quantityAvailable = quantityAvailable;
 	}
 
-	public ProductDetail getProductDetail() {
+	public ProductDetailEntity getProductDetail() {
 		return productDetail;
 	}
 
-	public void setProductDetail(ProductDetail productDetail) {
+	public void setProductDetail(ProductDetailEntity productDetail) {
 		this.productDetail = productDetail;
 	}
 	

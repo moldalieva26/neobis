@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="category")
-public class Category {
+public class CategoryEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
@@ -28,15 +28,15 @@ public class Category {
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="product_category_id")
 	//@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<ProductCategory> productCategoryId;
+	private List<ProductCategoryEntity> productCategoryId;
 	
-	public Category() {
+	public CategoryEntity() {
 		
 	}
 	
 	
 
-	public Category(Long id, String categoryName, String subCategoryName, List<ProductCategory> productCategoryId) {
+	public CategoryEntity(Long id, String categoryName, String subCategoryName, List<ProductCategoryEntity> productCategoryId) {
 		super();
 		this.id = id;
 		this.categoryName = categoryName;
@@ -70,11 +70,11 @@ public class Category {
 		this.subCategoryName = subCategoryName;
 	}
 
-	public List<ProductCategory> getProductCategoryId() {
+	public List<ProductCategoryEntity> getProductCategoryId() {
 		return productCategoryId;
 	}
 
-	public void setProductCategoryId(List<ProductCategory> productCategoryId) {
+	public void setProductCategoryId(List<ProductCategoryEntity> productCategoryId) {
 		this.productCategoryId = productCategoryId;
 	}
 	

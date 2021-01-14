@@ -10,24 +10,24 @@ import javax.persistence.Table;
 // incorect mapping with Category entity - product_category
 @Entity
 @Table(name="product_category")
-public class ProductCategory {
+public class ProductCategoryEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
 
 	@ManyToOne
 	@JoinColumn(name="category_id")
-	private ProductCategory categoryId;
+	private ProductCategoryEntity categoryId;
 	
 	@ManyToOne
 	@JoinColumn(name="product_id")
-	private Product productId;
+	private ProductEntity productId;
 	
-	public ProductCategory() {
+	public ProductCategoryEntity() {
 		
 	}
 
-	public ProductCategory(Long id, ProductCategory categoryId, Product productId) {
+	public ProductCategoryEntity(Long id, ProductCategoryEntity categoryId, ProductEntity productId) {
 		super();
 		this.id = id;
 		this.categoryId = categoryId;
@@ -42,19 +42,19 @@ public class ProductCategory {
 		this.id = id;
 	}
 
-	public ProductCategory getCategoryId() {
+	public ProductCategoryEntity getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(ProductCategory categoryId) {
+	public void setCategoryId(ProductCategoryEntity categoryId) {
 		this.categoryId = categoryId;
 	}
 
-	public Product getProductId() {
+	public ProductEntity getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Product productId) {
+	public void setProductId(ProductEntity productId) {
 		this.productId = productId;
 	}
 	
