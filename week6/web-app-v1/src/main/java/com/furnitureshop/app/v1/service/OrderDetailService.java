@@ -43,7 +43,7 @@ public class OrderDetailService {
 			orderDetail.setSubtotal(newOrderDetail.getSubtotal());
 			orderDetail.setTax(newOrderDetail.getTax());
 			orderDetail.setTotal(newOrderDetail.getTotal());
-			return orderDetail;
+			return orderDetailRepository.save(orderDetail);
 			
 			
 		}

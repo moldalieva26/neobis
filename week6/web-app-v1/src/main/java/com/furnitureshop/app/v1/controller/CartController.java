@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,10 +35,12 @@ public class CartController {
 	
 	//Do I need? @PostMapping, @DeleteMapping, @UpdateMapping must be done when customer registers and deleted only when customer's aaccount is deleted
 	@PostMapping
-	public CartEntity createCart(CartEntity cart) { // i cannot set child row - customer_id
+	public CartEntity createCart( @RequestBody CartEntity cart) { // cannot set customerId
 		return cartService.createCart(cart);
 		
 	}
+	
+	
 	
 	@DeleteMapping("/{id}")
 	public void deleteCart(@PathVariable Long id) {

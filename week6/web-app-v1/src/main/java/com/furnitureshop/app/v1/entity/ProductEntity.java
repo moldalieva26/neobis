@@ -41,6 +41,23 @@ public class ProductEntity {
 	public ProductEntity() {
 		
 	}
+	
+	
+
+	public ProductEntity(Long id, String productName, Float price, Long categoryId, String description, Boolean inStock,
+			Integer quantityAvailable, ProductDetailEntity productDetail) {
+		super();
+		this.id = id;
+		this.productName = productName;
+		this.price = price;
+		this.categoryId = categoryId;
+		this.description = description;
+		this.inStock = inStock;
+		this.quantityAvailable = quantityAvailable;
+		this.productDetail = productDetail;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -105,7 +122,6 @@ public class ProductEntity {
 	public void setProductDetail(ProductDetailEntity productDetail) {
 		this.productDetail = productDetail;
 	}
-	
 
 	
 	

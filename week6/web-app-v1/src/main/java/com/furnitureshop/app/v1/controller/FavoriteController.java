@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.furnitureshop.app.v1.entity.FavoriteEntity;
 import com.furnitureshop.app.v1.service.FavoriteService;
-
+//NOT WORKING
 @RestController
 @RequestMapping("/favorites")
 public class FavoriteController {
@@ -32,8 +32,13 @@ public class FavoriteController {
 		return favoriteService.getFavoriteById(id);
 	}
 	
-	@PostMapping FavoriteEntity createFavorite(FavoriteEntity favorite) { // cannot add or create or update child row
+	@PostMapping FavoriteEntity createFavorite(FavoriteEntity favorite) { 
 		return favoriteService.createFavorite(favorite);
+	}
+	
+	@PutMapping("/{id}")
+	public void updateFavorite(@PathVariable Long id, FavoriteEntity newFavorite) {
+		favoriteService.updateFavorite(id, newFavorite);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -42,10 +47,7 @@ public class FavoriteController {
 	}
 	
 	
-	@PutMapping("/{id}")
-	public void updateFavorite(@PathVariable Long id, FavoriteEntity newFavorite) {
-		favoriteService.updateFavorite(id, newFavorite);
-	}
+
 	
 
 }

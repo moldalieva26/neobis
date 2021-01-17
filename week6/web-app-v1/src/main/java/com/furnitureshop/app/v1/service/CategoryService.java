@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.furnitureshop.app.v1.entity.CategoryEntity;
 import com.furnitureshop.app.v1.entity.ProductCategoryEntity;
 import com.furnitureshop.app.v1.repository.CategoryRepository;
-// dopisat'
+
 @Service
 public class CategoryService {
 	@Autowired 
@@ -23,19 +23,19 @@ public class CategoryService {
 	}
 
 	public CategoryEntity createCategory(CategoryEntity category) {
-		return categoryRepository.save(category); // did not work, returnd null values
+		return categoryRepository.save(category); 
 	}
 
 	public void deleteCategory(Long id) {
 		categoryRepository.deleteById(id);
 	}
 
-	public CategoryEntity updateCategory(Long id, CategoryEntity newCategory) { // does not work
+	public CategoryEntity updateCategory(Long id, CategoryEntity newCategory) { 
 		if(categoryRepository.findById(id).isPresent()) {
 			CategoryEntity category = categoryRepository.findById(id).get();
 			category.setCategoryName(newCategory.getCategoryName());
 			category.setSubCategoryName(newCategory.getSubCategoryName());
-			return category;
+			return categoryRepository.save(category);
 			
 		}
 		return null;

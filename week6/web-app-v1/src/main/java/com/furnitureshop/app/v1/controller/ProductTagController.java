@@ -23,29 +23,30 @@ public class ProductTagController {
 	public ProductTagService productTagService;
 	
 	@GetMapping
-	public List<ProductTagEntity> getTags() {
+	public List<ProductTagEntity> getAllProductTags() {
 		return productTagService.getAllTags(); 
 		
 	}
 	
 	@GetMapping("/{id}")
-	public ProductTagEntity getTag(@PathVariable Long id) { 
+	public ProductTagEntity getProductTag(@PathVariable Long id) { 
 		return productTagService.getTagById(id);
 	}
 	
-	@PutMapping("/{id}")
-	public ProductTagEntity updateTag(@PathVariable Long id, ProductTagEntity newTag) { // working incorrectly ???
-		return productTagService.updateTag(id, newTag);
-	}
-	
 	@PostMapping
-	public ProductTagEntity createTag(@RequestBody ProductTagEntity tag) {
+	public ProductTagEntity createProductTag(@RequestBody ProductTagEntity tag) { // does not work
 		return productTagService.createTag(tag);
 		
 	}
 	
+	@PutMapping("/{id}")
+	public ProductTagEntity updateProductTag(@PathVariable Long id, @RequestBody ProductTagEntity newTag) { // does not work
+		return productTagService.updateTag(id, newTag);
+	}
+	
+	
 	@DeleteMapping("/{id}")
-	public void deleteTag(@PathVariable Long id) {
+	public void deleteProductTag(@PathVariable Long id) {
 		productTagService.deleteTag(id);
 	}
 	

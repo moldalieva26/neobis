@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.furnitureshop.app.v1.entity.ProductEntity;
 import com.furnitureshop.app.v1.entity.ProductTagEntity;
 import com.furnitureshop.app.v1.repository.ProductTagRepository;
 import com.furnitureshop.app.v1.repository.TagRepository;
 
-// To Do: 
 //add else, if, try catch for exceptions
 @Service
 public class ProductTagService {
@@ -26,14 +26,17 @@ public class ProductTagService {
 
 	public ProductTagEntity updateTag(Long id, ProductTagEntity newProductTag) {
 		if(productTagRepository.findById(id).isPresent()) {
-			ProductTagEntity tag = productTagRepository.findById(id).get();
-		// dopisat'
-			return  productTagRepository.save(tag); // returns null after updating???
+			ProductTagEntity existingTag = productTagRepository.findById(id).get();
+			existingTag.setProductId(newProductTag.getProductId()); // cannot update or set
+			existingTag.setTagId(newProductTag.getTagId());
+			return  productTagRepository.save(existingTag); 
 			
 			
-		}
-		return null;
+		} else {
+		return null;}
 	}
+	
+	
 
 	public ProductTagEntity createTag(ProductTagEntity tag) {
 		return productTagRepository.save(tag);

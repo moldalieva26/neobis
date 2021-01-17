@@ -14,14 +14,15 @@ public class ProductService {
 	
 	@Autowired
 	ProductRepository productRepository;
-
-	public ProductEntity getProduct(Long id) {
-		return productRepository.findById(id).get(); //if not, throw exceptiond
-	}
-
+	
 	public List<ProductEntity> getAllProducts() {
 		return productRepository.findAll();
 	}
+
+	public ProductEntity getProduct(Long id) {
+		return productRepository.findById(id).get(); //add: if not, throw exception
+	}
+
 /*
 	public Product getProductByName(String productName) {
 		return productRepository.findByProductName(productName);
@@ -33,7 +34,6 @@ public class ProductService {
 	}
 
 	public List<ProductEntity> getProductsByCategory(Long categoryId) {
-		// TODO Auto-generated method stub
 		return productRepository.findByCategoryId(categoryId);
 	}
 
@@ -41,7 +41,7 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 
-	public ProductEntity updateProduct(Long id, ProductEntity newProduct) { //updated later 
+	public ProductEntity updateProduct(Long id, ProductEntity newProduct) { //update later 
 		if(productRepository.findById(id).isPresent()) {
 			ProductEntity existingProduct = productRepository.findById(id).get();
 			existingProduct.setProductName(newProduct.getProductName());

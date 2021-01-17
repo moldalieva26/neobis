@@ -36,7 +36,7 @@ public class TagController {
 	}
 	
 	@PutMapping("/{id}")
-	public TagEntity updateTag(@PathVariable Long id, TagEntity newTag) { // working incorrectly ??? returns null
+	public TagEntity updateTag(@PathVariable Long id, @RequestBody TagEntity newTag) { // working incorrectly ??? returns null
 		return tagService.updateTag(id, newTag);
 	}
 	

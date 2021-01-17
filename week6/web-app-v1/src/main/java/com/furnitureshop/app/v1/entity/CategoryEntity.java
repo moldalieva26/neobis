@@ -33,18 +33,6 @@ public class CategoryEntity {
 	public CategoryEntity() {
 		
 	}
-	
-	
-
-	public CategoryEntity(Long id, String categoryName, String subCategoryName, List<ProductCategoryEntity> productCategoryId) {
-		super();
-		this.id = id;
-		this.categoryName = categoryName;
-		this.subCategoryName = subCategoryName;
-		this.productCategoryId = productCategoryId;
-	}
-
-
 
 	public Long getId() {
 		return id;
@@ -77,6 +65,9 @@ public class CategoryEntity {
 	public void setProductCategoryId(List<ProductCategoryEntity> productCategoryId) {
 		this.productCategoryId = productCategoryId;
 	}
+	
+	
+
 	
 	
 }

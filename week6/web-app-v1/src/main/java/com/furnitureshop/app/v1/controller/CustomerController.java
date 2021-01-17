@@ -22,39 +22,36 @@ import com.furnitureshop.app.v1.entity.CustomerEntity;
 import com.furnitureshop.app.v1.model.CustomerDto;
 import com.furnitureshop.app.v1.service.CustomerService;
 
-
-
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
 	
 	@Autowired
-	private  CustomerService customerService; //?'
-	//Consider defining a bean of type 'com.furniture.shop.webappv1.service.CustomerService' in your configuration.
+	private  CustomerService customerService; 
 
-	
-	@GetMapping(path="/{id}") // works
-	public CustomerEntity getCustomer(@PathVariable Long id) {
-		return customerService.getCustomer(id); 
-	}
-	
-	@GetMapping()  //works
-	public CustomerEntity getCustomerByEmail(@RequestParam(value="email") String email) {
-		return customerService.findCustomerByEmail(email);
-	}
-
-	@GetMapping("/all") //works
+	@GetMapping("/all")  // issue with id=31
 	public List<CustomerEntity> getCutomers(){
 		return customerService.getAllCustomers();
 	}
 	
-	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) //works
+	@GetMapping(path="/{id}")
+	public CustomerEntity getCustomer(@PathVariable Long id) {
+		return customerService.getCustomer(id); 
+	}
+	
+	@GetMapping()  
+	public CustomerEntity getCustomerByEmail(@RequestParam(value="email") String email) {
+		return customerService.findCustomerByEmail(email);
+	}
+
+	
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) 
 	public CustomerEntity createCustomer(@RequestBody CustomerEntity customer) {
 		return customerService.createUser(customer);
 	}
 
 	
-	@PutMapping(path="/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(path="/{id}", consumes=MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE) 
 	public CustomerEntity updateCustomer(@RequestBody CustomerDto customerDto, @PathVariable Long id) {
 		return customerService.updateCustomer(id, customerDto);	
 	}

@@ -24,6 +24,8 @@ public class TagService {
 	public TagEntity updateTag(Long id, TagEntity newTag) {
 		if(tagRepository.findById(id).isPresent()) {
 			TagEntity tag = tagRepository.findById(id).get();
+			tag.setTagName(newTag.getTagName());
+			tag.setProductTagId(newTag.getProductTagId()); // cannot update productTagId
 		
 			return  tagRepository.save(tag); // returns null after updating???
 			

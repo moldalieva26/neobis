@@ -33,7 +33,6 @@ public class ProductController {
 		return productService.getAllProducts();
 	} 
 	
-	
 	@GetMapping("/name/{productName}") 
 	public List<ProductEntity> getProductsByName(@PathVariable String productName) {
 		return productService.getProductsByName(productName);

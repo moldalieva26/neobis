@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.furnitureshop.app.v1.entity.CartDetailEntity;
 import com.furnitureshop.app.v1.service.CartDetailService;
 
-// cannot create any rows
+
 @RestController
 @RequestMapping("/cartdetails")
 public class CartDetailController {
@@ -31,7 +31,7 @@ public class CartDetailController {
 	}
 	
 	@PostMapping //org.hibernate.PropertyValueException: not-null property references a null or transient value : com.furnitureshop.app.v1.entity.CartDetail.cartId
-	public CartDetailEntity createCartDetail(CartDetailEntity cartDetail) { // cannot add or update child row ???
+	public CartDetailEntity createCartDetail(CartDetailEntity cartDetail) { // postman: Column 'cart_id' cannot be null. mysql works
 		return cartDetailService.createCartDetail(cartDetail);
 		
 	}

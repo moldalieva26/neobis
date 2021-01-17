@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 @Table(name="favorite")
 
@@ -22,7 +24,7 @@ public class FavoriteEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; //?
 	
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@ManyToOne(fetch=FetchType.LAZY, optional=false) // https://stackoverflow.com/questions/52656517/no-serializer-found-for-class-org-hibernate-proxy-pojo-bytebuddy-bytebuddyinterc 
 	@JoinColumn(name="product_id")
 	private ProductEntity productId;
 	
